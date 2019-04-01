@@ -1,11 +1,21 @@
-function Player() {
-    //Startpunkt
-    this.y = width / 1.162;
-    this.x = 25;
+//function setup() {}
 
-    // Painting the Player
-    this.show = function() {
-        fill(144); // Farbe
-        ellipse(this.x, this.y, 13, 13);
-    };
+//function draw() {}
+
+class Player {
+    constructor() {
+        this.width = 400;
+        this.y = this.width / 1.162;
+        this.x = 260;
+        
+    }
+    
+    show() {
+        fill(145, 90, 90); // Farbe
+        ellipse(this.x, this.y, 42, 42);
+    }
+
+    //setup()
 }
+
+//translate(,)
