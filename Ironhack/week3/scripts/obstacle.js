@@ -1,16 +1,16 @@
-//function IntersectRect(rect1, rect2);
-/*class ObstacleUp {
-    constructor() {
-        this.fill(245, 0, 200);
-        this.rect(600, 326, 40, 40);
+class Obstacles {
+    constructor(x, y, width, height, speed) {
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+    }
+    draw() {
+        fill(20, 200, 20);
+        rect(this.x, this.y, this.width, this.height);
+    }
+    update() {
+        this.x += this.speed;
     }
 }
-s;
-
-class ObstacleDown {
-    constructor() {
-        this.fill(245, 0, 200);
-        this.rect(400, 366, 40, 40);
-    }
-}
-*/

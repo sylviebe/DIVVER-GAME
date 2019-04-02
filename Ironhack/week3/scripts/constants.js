@@ -1,0 +1,3 @@
+const CANVAS_HEIGHT = 1000;
+const CANVAS_WIDTH = 600;
+const ACCELERATION = 0.3;
