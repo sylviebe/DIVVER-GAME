@@ -1,5 +1,7 @@
 class Player {
-    constructor() {
+    constructor() {}
+
+    setup() {
         this.width = 400;
         this.y = this.width / 1.162;
         this.x = 260;

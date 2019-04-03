@@ -1,13 +1,15 @@
 class Obstacles {
-    constructor(x, y, width, height, speed) {
+    constructor(x, y, width, height, speed, color) {
         this.width = width;
         this.height = height;
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.color = color;
     }
     draw() {
         fill(20, 200, 20);
+
         rect(this.x, this.y, this.width, this.height);
         this.checkCollision();
     }
@@ -16,8 +18,7 @@ class Obstacles {
     }
 
     checkCollision() {
-        // STEIN
-        // LOCH
+        // STONE
 
         if (this.y == 326) {
             const obstaclevar = {
@@ -27,9 +28,14 @@ class Obstacles {
                 bottom: 366
             };
 
-            if (intersectRect(obstaclevar, player)) {
-                noLoop();
+            if (intersectRect(obstaclevar, game.player)) {
+                game.over();
             }
+
+            // if the obstacles right end is smaller than the players left end
+            //
+
+            // HOLE
         } else if (this.y == 366) {
             const obstaclevar2 = {
                 left: this.x,
@@ -37,8 +43,13 @@ class Obstacles {
                 top: 366,
                 bottom: 366 + this.height
             };
-            if (intersectHoles(obstaclevar2, player)) {
-                noLoop();
+            if (intersectHoles(obstaclevar2, game.player)) {
+                game.over();
+            }
+            console.log(obstaclevar2.left);
+            if (score(/* obstaclevar */ true, game.player) || score(obstaclevar2, game.player)) {
+                console.log('SCORE++');
+                game.score++;
             }
         }
 
@@ -53,6 +64,10 @@ class Obstacles {
 
         function intersectHoles(r1, r2) {
             return r2.right > r1.left + 20 && r2.bottom + 1 > r1.top && r2.left < r1.right - 20;
+        }
+
+        function score(r1, r2) {
+            return r2.left > r1.right;
         }
     }
 }
