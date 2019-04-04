@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-
 h1 {
     text-align: center;
-    font-family: PressStart2P;
+    padding-right: 30px;
+    font-family: 'Press Start 2P';
+}
+
+.btn {
+    padding: 30px;
 }

@@ -8,7 +8,7 @@ class Obstacles {
         this.color = color;
     }
     draw() {
-        fill(20, 200, 20);
+        fill(255, 61, 206);
 
         rect(this.x, this.y, this.width, this.height);
         this.checkCollision();
@@ -29,7 +29,11 @@ class Obstacles {
             };
 
             if (intersectRect(obstaclevar, game.player)) {
-                game.over();
+                // game.over();
+            }
+
+            if (obstaclevar.right == 200) {
+                game.score++;
             }
 
             // if the obstacles right end is smaller than the players left end
@@ -45,10 +49,10 @@ class Obstacles {
             };
             if (intersectHoles(obstaclevar2, game.player)) {
                 game.over();
+                mySecondSound.play();
             }
-            console.log(obstaclevar2.left);
-            if (score(/* obstaclevar */ true, game.player) || score(obstaclevar2, game.player)) {
-                console.log('SCORE++');
+
+            if (obstaclevar2.right == 200) {
                 game.score++;
             }
         }
@@ -66,8 +70,8 @@ class Obstacles {
             return r2.right > r1.left + 20 && r2.bottom + 1 > r1.top && r2.left < r1.right - 20;
         }
 
-        function score(r1, r2) {
+        /* function score(r1, r2) {
             return r2.left > r1.right;
-        }
+        } */
     }
 }

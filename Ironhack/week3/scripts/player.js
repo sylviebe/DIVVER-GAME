@@ -16,7 +16,7 @@ class Player {
     show() {
         this.bottom = this.y + this.radius;
         this.top = this.y - this.radius;
-        fill(145, 90, 90); // Farbe
+        fill(252, 255, 0); // Farbe
         ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
 
         if (mouseIsPressed && this.y >= this.width / 1.162) {
