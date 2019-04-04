@@ -29,7 +29,7 @@ class Obstacles {
             };
 
             if (intersectRect(obstaclevar, game.player)) {
-                // game.over();
+                game.over();
             }
 
             if (obstaclevar.right == 200) {
@@ -49,7 +49,7 @@ class Obstacles {
             };
             if (intersectHoles(obstaclevar2, game.player)) {
                 game.over();
-                mySecondSound.play();
+                mySound.play();
             }
 
             if (obstaclevar2.right == 200) {

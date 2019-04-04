@@ -1,10 +1,20 @@
-let buttonCreated = false;
-let button;
+let resetButtonCreated = false;
+let startButtonCreated = false;
+let gameStarted = false;
+let resetButton;
+let startButton;
 let bg;
 let myFont;
 let mySound;
 let mySecondSound;
 let canPlaySound = false;
+
+function startGame() {
+    gameStarted = true;
+    startButton.hide();
+    myBackgroundSound.play();
+    myBackgroundSound.loop();
+}
 
 class Game {
     constructor() {
@@ -19,7 +29,8 @@ class Game {
 
     setup() {
         //img = loadImage('/background-image.jpg');
-        createCanvas(CANVAS_HEIGHT, CANVAS_WIDTH);
+        let canvas = createCanvas(CANVAS_HEIGHT, CANVAS_WIDTH);
+        canvas.parent('sketch-holder');
         frameRate(120);
         /* resetGame(); */
         this.obstacleArray.forEach(el => el.setup());
@@ -31,23 +42,46 @@ class Game {
 
     draw() {
         clear();
-        if (this.gameOver) {
-            text('Game Over', 320, 250);
+        if (!gameStarted) {
+            if (!startButtonCreated) {
+                startButton = createButton('CLICK JUMP PLAY');
+                startButton.class('btn');
+                startButton.position(515, 450);
+                startButton.mousePressed(startGame);
+                startButton.size(250, 150);
+                startButtonCreated = true;
+            }
+            textSize(30);
+            fill(0);
+            //text('the hard and simple jumping game', 80, 40);
+            textSize(30);
+            fill(252, 255, 0);
+            //text('Just KLICK to JUMP', 400, 200);
+        } else if (this.gameOver) {
+            textSize(40);
+            fill(252, 255, 0);
+            textFont('Audiowide');
+            text(`FINALSCORE:${this.score}`, 328, 200, 100);
+            textSize(120);
+            fill(240);
+            textFont('Press Start 2P');
+            text('Game Over', 150, 120);
 
-            if (!buttonCreated) {
-                button = createButton('play');
-                button.class('btn');
-                button.position(510, 440);
-                button.mousePressed(this.resetGame);
-                buttonCreated = true;
+            if (!resetButtonCreated) {
+                resetButton = createButton('TRY AGAIN');
+                resetButton.class('btn');
+                resetButton.position(515, 450);
+                resetButton.mousePressed(this.resetGame);
+                resetButton.size(250, 150);
+                resetButtonCreated = true;
             }
         } else {
+            textFont('Audiowide');
             background(0);
             line(0, 366, 1000, 366);
             textSize(32);
             fill(240);
-            text(`SCORE:${this.score}`, 800, 50, 100);
-            textSize(80);
+            text(`SCORE:${this.score}`, 420, 50, 100);
 
             this.player.show();
             this.obstacleArray.forEach(el => el.draw());

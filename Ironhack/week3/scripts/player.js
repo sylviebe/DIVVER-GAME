@@ -20,6 +20,7 @@ class Player {
         ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
 
         if (mouseIsPressed && this.y >= this.width / 1.162) {
+            mySecondSound.play();
             this.inAir = true;
             /* this.y -= 5; */
             if (this.firstMouseClick == true) {

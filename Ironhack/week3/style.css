@@ -1,9 +1,31 @@
 h1 {
-    text-align: center;
-    padding-right: 30px;
     font-family: 'Press Start 2P';
+    color: rgb(255, 61, 206);
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: black;
+    /*background-image: url('/background-image.jpg');*/
 }
 
 .btn {
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+
+    font-size: 30px;
+    font-family: 'Press Start 2P';
+    border-radius: 12px;
+
+    color: rgb(252, 255, 0);
+    background-color: rgb(255, 61, 206);
+    border-color: rgb(255, 61, 206);
+}
+
+#sketch-holder {
+    display: flex;
+    justify-content: center;
 }
