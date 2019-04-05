@@ -1,9 +1,9 @@
 let game = new Game();
 
 function preload() {
-    mySound = loadSound('DIVVER-GAME/gameoverover.wav');
-    mySecondSound = loadSound('DIVVER-GAME/sound-jump.wav');
-    myBackgroundSound = loadSound('DIVVER-GAME/background-sound.mp3');
+    mySound = loadSound('./gameoverover.wav');
+    mySecondSound = loadSound('./sound-jump.wav');
+    myBackgroundSound = loadSound('./background-sound.mp3');
 }
 
 function setup() {
