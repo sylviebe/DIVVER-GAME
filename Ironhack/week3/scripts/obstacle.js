@@ -30,6 +30,7 @@ class Obstacles {
 
             if (intersectRect(obstaclevar, game.player)) {
                 game.over();
+                mySound.play();
             }
 
             if (obstaclevar.right == 200) {
